@@ -1,0 +1,8 @@
+<mat-card>
+    <mat-card-content>
+      Question List
+        <mat-list>
+            <mat-list-item  *ngFor="let question of questions"><div class="clickable" (click)='selectQuestion(question)'>{{question.createQuestion}}</div></mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

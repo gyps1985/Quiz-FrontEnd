@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-title>
+    <h2>{{status=='Update'?'Update Question':'New Question'}}</h2>
+  </mat-card-title>
+    <mat-card-content>
+    <form [formGroup]="questionGroup" autocomplete="off">
+        <mat-form-field class="full-width">
+          <mat-label>Question</mat-label>
+          <input matInput placeholder="Who made this question" formControlName="createQuestionCtrl">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Correct Answer</mat-label>
+          <input matInput placeholder="Correct Answer" formControlName="correctAnswerCtrl">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Wrong Answer1</mat-label>
+          <input matInput placeholder="Wrong Answer1" formControlName="wrongAnswer1Ctrl">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Wrong Answer2</mat-label>
+          <input matInput placeholder="Wrong Answer2" formControlName="wrongAnswer2Ctrl">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Wrong Answer3</mat-label>
+          <input matInput placeholder="Wrong Answer3" formControlName="wrongAnswer3Ctrl">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="post()">POST</button>
+        <button mat-raised-button color="primary" (click)="newQuestiion()">NEW</button>
+    </mat-card-actions>
+</mat-card>
+<div *ngIf="questions.length>0"><question-view [questions]="questions" (questionSelected)="showSelectedQuestion($event)"></question-view></div>
